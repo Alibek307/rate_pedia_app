@@ -2,11 +2,13 @@ import { View, Text, Image } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { ScrollView } from 'react-native'
-import { router } from 'expo-router';
+import { Link, router } from 'expo-router';
 
 import { images } from '../../constants';
 import FormField from '../../components/FormField';
 import CustomButton from '../../components/CustomButton'
+import { api } from '../../shared/api';
+import * as SecureStore from 'expo-secure-store'
 
 const SignIn = () => {
   const [form, setForm] = useState({
@@ -14,8 +16,17 @@ const SignIn = () => {
     password: '',
   })
 
-  const submit = () =>{
+  const [isSubmitting, setisSubmitting] = useState(false)
 
+  const submit = async () =>{
+
+    try {
+      const data=await api().post('auth/sign-in', {json:form}).json()
+        await SecureStore.setItemAsync('token', data.accessToken)
+        router.navigate('/tabs/home')
+      } catch (error) {
+        alert(error)
+    }
   }
 
   return (
@@ -25,7 +36,7 @@ const SignIn = () => {
           <Image
             source={images.logo2}
             className="w-[150px] h-[200px]"
-            resizeMode="contain"
+            resizeMode='contain'
           />
           <Text className="text-2xl text-black text-semibold mt-10 font-psemibold">Войти</Text>
 
@@ -46,9 +57,15 @@ const SignIn = () => {
           />
           <CustomButton
             title="Войти"
-            handlePress={() => router.push('/tabs/home')}
+            handlePress={submit}
             containerStyles="mt-7"
+            isLoading={isSubmitting}
+
           />
+
+          <View className="justify-center pt-5 flex-row gap-2">
+            <Link href="/sign-up" className="text-lg font-pregular text-secondary">Зарегистрироваться</Link>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>

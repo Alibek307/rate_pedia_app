@@ -12,7 +12,7 @@ export default function App() {
         <View className="w-full justify-center items-center min-h-[50vh] px-4">
           <Image
             source={images.logo}
-            className="w-[230px] h-[230px]"
+            className="w-[200px] h-[200px]"
             resizeMode="contain"
           />
         </View>
@@ -31,7 +31,7 @@ export default function App() {
           />
         </View>
       </ScrollView>
-      {/* <StatusBar backgroundColor='#161622' style='light'/> */}
+      <StatusBar backgroundColor='#161622' style='light'/>
     </SafeAreaView>
   );
 }
