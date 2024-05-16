@@ -17,16 +17,16 @@ export default function App() {
           />
         </View>
         <View className="relative mt-5">
-          <Text className="text-3xl text-black font-bold text-center">
+          <Text className="text-2xl text-black font-bold text-center">
           Исследуй, Оценивай, Обсуждай:
           </Text>
-          <Text className="text-3xl text-black font-bold text-center">
+          <Text className="text-2xl text-black font-bold text-center">
           <Text className="text-secondary">Rate Pedia</Text>{' '}
            - твой путь к знаниям и мнениям!
           </Text>
           <CustomButton 
             title="Войти"
-            handlePress={() => router.push('/sign-in')}
+            handlePress={() => router.push('/tabs/home')}
             containerStyles="w-full mt-7"
           />
         </View>
