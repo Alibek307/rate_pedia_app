@@ -1,5 +1,5 @@
 import { View, Text, Image } from 'react-native'
-import { Tabs, Redirect } from 'expo-router';
+import { Tabs, Link} from 'expo-router';
 
 import { icons } from '../../constants';
 
@@ -87,12 +87,14 @@ const TabsLayout = () => {
             title: 'Profile',
             headerShown: false,
             tabBarIcon: ({ color, focused}) => (
+              <Link href='auth/sign-in'>
               <TabIcon
                 icon={icons.profile}
                 color={color}
                 name="Profile"
                 focused={focused}
               />
+              </Link>
             )
           }}
         />

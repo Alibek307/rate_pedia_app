@@ -7,9 +7,9 @@ const IconButton = ({ icon, name, onPress, focused, color }) => {
     onPress={onPress}>
       <Image 
       source={icon} 
-      className="w-10 h-10" 
+      className="w-9 h-9" 
       resizeMode='contain' />
-      <Text className={`${focused ? 'font-psemibold' : 'font-pregular'} text-xs`} style={{ color: color }}>
+      <Text className={`${focused ? 'font-psemibold' : 'font-pregular'} mt-2 text-small text-secondary`}>
         {name}
       </Text>
     </TouchableOpacity>

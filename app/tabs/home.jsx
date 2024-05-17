@@ -1,8 +1,9 @@
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList} from 'react-native'
 import React from 'react'
 import SearchInput from '../../components/SearchInput';
 import { icons } from '../../constants';
 import IconButton from '../../components/IconButton';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 const iconsData = [
@@ -14,20 +15,19 @@ const iconsData = [
 
 const Home = () => {
   return (
-    <View className="flex-1 pt-5 bg-white">
-      <View className="my-12 px-4 space-y-6">
+    <SafeAreaView className="flex-1 bg-gray-200">
+      <View className="bg-white p-4 mb-3">
         <SearchInput />
       </View>
       <FlatList
-        contentContainerStyle={{ paddingHorizontal: 16, alignItems: 'center' }}
+        contentContainerStyle={{ backgroundColor: 'white' }}
         data={iconsData}
         renderItem={({ item, color, focused }) => (
-          <View className="items-center justify-center gap-2">
+          <View className="pt-4 items-center justify-center flex-1">
             <IconButton
               icon={item.icon}
               focused={focused}
               name={item.name}
-              color={color}
               onPress={() => console.log(`${item.name} pressed`)}
             />
           </View>
@@ -35,7 +35,10 @@ const Home = () => {
         keyExtractor={(item) => item.id}
         numColumns={4} 
       />
-    </View>
+      <View>
+        <Text>Популярное</Text>
+      </View>
+    </SafeAreaView>
   );
 };
 
