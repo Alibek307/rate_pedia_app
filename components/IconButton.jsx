@@ -1,15 +1,12 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 
-const IconButton = ({ icon, name, onPress, focused, color }) => {
+const IconButton = ({ Icon, name, onPress, focused, color }) => {
   return (
-    <TouchableOpacity className="flex items-center justify-center m-2.5" 
+    <TouchableOpacity className="flex items-center justify-center m-2.5 text-center" 
     onPress={onPress}>
-      <Image 
-      source={icon} 
-      className="w-9 h-9" 
-      resizeMode='contain' />
-      <Text className={`${focused ? 'font-psemibold' : 'font-pregular'} mt-2 text-small text-secondary`}>
+      <Icon color="red" size={28} />
+      <Text className={`${focused ? 'font-rbold' : 'font-rregular'} mt-2 text-small text-black`}>
         {name}
       </Text>
     </TouchableOpacity>

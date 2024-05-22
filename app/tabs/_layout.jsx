@@ -12,7 +12,7 @@ const TabIcon = ({ icon, color, name, focused }) => {
         tintColor={color}
         className="w-6 h-6"
       />
-      <Text className={`${focused ? 'font-psemibold' : 'font-pregular'} text-xs`} style={{ color: color }}>
+      <Text className={`${focused ? 'font-rbold' : 'font-pregular'} text-xs`} style={{ color: color }}>
         {name}
       </Text>
     </View>
@@ -87,14 +87,12 @@ const TabsLayout = () => {
             title: 'Profile',
             headerShown: false,
             tabBarIcon: ({ color, focused}) => (
-              <Link href='auth/sign-in'>
               <TabIcon
                 icon={icons.profile}
                 color={color}
                 name="Profile"
                 focused={focused}
               />
-              </Link>
             )
           }}
         />
