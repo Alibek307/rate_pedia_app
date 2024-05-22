@@ -7,7 +7,7 @@ import CustomButton from '../components/CustomButton';
 
 export default function App() {
   return (
-    <SafeAreaView className="bg-white h-full">
+    <SafeAreaView className="bg-white justify-center items-center">
       <ScrollView contentContainerStyle={{ height: '100%'}}>
         <View className="w-full justify-center items-center min-h-[50vh] px-4">
           <Image
@@ -16,7 +16,7 @@ export default function App() {
             resizeMode="contain"
           />
         </View>
-        <View className="relative mt-5">
+        <View className="mt-5 justify-center items-center">
           <Text className="text-2xl text-black font-rbold text-center">
           Исследуй, Оценивай, Обсуждай:
           </Text>
@@ -27,7 +27,7 @@ export default function App() {
           <CustomButton 
             title="Войти"
             handlePress={() => router.push('/tabs/home')}
-            containerStyles="w-full mt-7"
+            containerStyles="w-60 mt-6"
           />
         </View>
       </ScrollView>

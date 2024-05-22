@@ -11,7 +11,7 @@ import { IconMessage, IconCategory, IconBookmark, IconUserFilled } from '@tabler
 const iconsData = [
   { id: '1', name: 'Форум', Icon: IconMessage },
   { id: '2', name: 'Каталог', Icon: IconCategory },
-  { id: '3', name: 'Популярное', Icon: IconBookmark },
+  { id: '3', name: 'Избранные', Icon: IconBookmark },
   { id: '4', name: 'Профиль', Icon: IconUserFilled },
 ];
 
