@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const useSessionStore = create()(
   persist(
-    () => ({
+    (set, get) => ({
       token: undefined,
       user: undefined,
       setToken: (token) => set({ token }),

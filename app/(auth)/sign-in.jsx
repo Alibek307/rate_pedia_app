@@ -1,61 +1,60 @@
-import { View, Text, Image } from 'react-native'
-import React, { useState } from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { ScrollView } from 'react-native'
+import { View, Text, Image } from 'react-native';
+import React, { useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { ScrollView } from 'react-native';
 import { Link, router } from 'expo-router';
 
 import { images } from '../../constants';
 import FormField from '../../components/FormField';
-import CustomButton from '../../components/CustomButton'
+import CustomButton from '../../components/CustomButton';
 import { api } from '../../shared/api';
-import * as SecureStore from 'expo-secure-store'
+import { useSessionStore } from '../../shared';
 
 const SignIn = () => {
+  const setToken = useSessionStore((state) => state.setToken);
+  const setUser = useSessionStore((state) => state.setUser);
+
   const [form, setForm] = useState({
     email: '',
     password: '',
-  })
+  });
 
-  const [isSubmitting, setisSubmitting] = useState(false)
+  const [isSubmitting, setisSubmitting] = useState(false);
 
-  const submit = async () =>{
-
+  const submit = async () => {
     try {
-      const data=await api().post('auth/sign-in', {json:form}).json()
-        await SecureStore.setItemAsync('token', data.accessToken)
-        router.navigate('/tabs/home')
-      } catch (error) {
-        alert(error)
+      const tokenData = await api().post('auth/sign-in', { json: form }).json();
+      setToken(tokenData.accessToken);
+      const userData = await api().get('auth/profile').json();
+      setUser(userData);
+
+      router.navigate('/tabs/home');
+    } catch (error) {
+      alert(error);
     }
-  }
+  };
 
   return (
     <SafeAreaView className="bg-white h-full">
       <ScrollView>
         <View className="justify-center px-4 my-12">
-          <Image
-            source={images.logo2}
-            className="w-[150px] h-[200px]"
-            resizeMode='contain'
-          />
+          <Image source={images.logo2} className="w-[150px] h-[200px]" resizeMode="contain" />
           <Text className="text-2xl text-black text-semibold mt-10 font-psemibold">Войти</Text>
 
           <FormField
             title="Логин"
             value={form.email}
             placeholder="Введите логин"
-            handleChangeText={(e) => setForm({ ...form,
-            email: e })}
+            handleChangeText={(e) => setForm({ ...form, email: e })}
             otherStyles="mt-7"
             keyboardType="email-address"
           />
           <FormField
             title="Пароль"
-            type='password'
+            type="password"
             value={form.password}
             placeholder="Введите пароль"
-            handleChangeText={(e) => setForm({ ...form,
-            password: e })}
+            handleChangeText={(e) => setForm({ ...form, password: e })}
             otherStyles="mt-7"
           />
           <CustomButton
@@ -63,16 +62,17 @@ const SignIn = () => {
             handlePress={submit}
             containerStyles="mt-7"
             isLoading={isSubmitting}
-
           />
 
           <View className="justify-center pt-5 flex-row gap-2">
-            <Link href="/sign-up" className="text-lg font-pregular text-secondary">Зарегистрироваться</Link>
+            <Link href="/sign-up" className="text-lg font-pregular text-secondary">
+              Зарегистрироваться
+            </Link>
           </View>
         </View>
       </ScrollView>
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default SignIn
+export default SignIn;
