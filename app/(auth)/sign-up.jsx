@@ -49,6 +49,7 @@ const SignUp = () => {
           />
           <FormField
             title="Пароль"
+            type='password'
             value={form.password}
             handleChangeText={(e) => setForm({ ...form,
             password: e })}

@@ -32,7 +32,7 @@ const SignIn = () => {
   return (
     <SafeAreaView className="bg-white h-full">
       <ScrollView>
-        <View className="w-full justify-center h-full px-4 my-6">
+        <View className="justify-center px-4 my-12">
           <Image
             source={images.logo2}
             className="w-[150px] h-[200px]"
@@ -43,6 +43,7 @@ const SignIn = () => {
           <FormField
             title="Логин"
             value={form.email}
+            placeholder="Введите логин"
             handleChangeText={(e) => setForm({ ...form,
             email: e })}
             otherStyles="mt-7"
@@ -50,7 +51,9 @@ const SignIn = () => {
           />
           <FormField
             title="Пароль"
+            type='password'
             value={form.password}
+            placeholder="Введите пароль"
             handleChangeText={(e) => setForm({ ...form,
             password: e })}
             otherStyles="mt-7"

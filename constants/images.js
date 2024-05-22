@@ -5,6 +5,7 @@ import catalogAnime from "../assets/images/anime_catalog.jpg";
 import catalogMovies from "../assets/images/movies_catalog.jpg";
 import catalogGames from "../assets/images/games_catalog.png";
 import catalogShows from "../assets/images/shows_catalog.jpg";
+import bulletTrain from "../assets/images/bullet_train.jpeg";
+import vindlandSaga from "../assets/images/Vinland_Saga.jpeg";
 
-
-export default { profile, logo, logo2, catalogAnime, catalogGames, catalogMovies, catalogShows };
+export default { profile, logo, logo2, catalogAnime, catalogGames, catalogMovies, catalogShows, bulletTrain, vindlandSaga};
