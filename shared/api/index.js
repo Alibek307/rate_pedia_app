@@ -1,11 +1,10 @@
-import ky from "ky";
-import * as SecureStore from 'expo-secure-store'
+import ky from 'ky';
+import { useSessionStore } from '../';
 
 export const api = () =>
   ky.create({
-    prefixUrl: "http://192.168.1.223:5000/api/",
+    prefixUrl: 'http://10.0.2.2:5000/api/',
     headers: {
-      Authorization: `Bearer ${SecureStore.getItem('token')}`,
+      Authorization: `Bearer ${useSessionStore.getState().token}`,
     },
-    
   });
