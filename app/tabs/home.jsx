@@ -39,7 +39,7 @@ const Home = () => {
   const router = useRouter();
 
   const handleCategoryPress = () => {
-    router.push('categories/category');
+    router.push('/categories');
   };
 
   return (

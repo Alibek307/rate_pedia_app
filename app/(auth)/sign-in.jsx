@@ -36,10 +36,13 @@ const SignIn = () => {
 
   return (
     <SafeAreaView className="bg-white h-full">
-      <ScrollView>
         <View className="justify-center px-4 my-12">
-          <Image source={images.logo2} className="w-[150px] h-[200px]" resizeMode="contain" />
-          <Text className="text-2xl text-black text-semibold mt-10 font-psemibold">Войти</Text>
+          <Image 
+          source={images.logo2} 
+          className="w-[150px] h-[150px]" 
+          resizeMode="contain" 
+          />
+          <Text className="text-2xl text-black text-semibold mt-10 font-rmedium">Вход в аккаунт</Text>
 
           <FormField
             title="Логин"
@@ -70,7 +73,6 @@ const SignIn = () => {
             </Link>
           </View>
         </View>
-      </ScrollView>
     </SafeAreaView>
   );
 };
