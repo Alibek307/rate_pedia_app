@@ -35,13 +35,15 @@ const SignUp = () => {
           <FormField
             title="Логин"
             value={form.username}
+            placeholder="Введите логин"
             handleChangeText={(e) => setForm({ ...form,
             username: e })}
             otherStyles="mt-7"
           />
           <FormField
-            title="Email"
+            title="E-mail"
             value={form.email}
+            placeholder="Введите E-mail"
             handleChangeText={(e) => setForm({ ...form,
             email: e })}
             otherStyles="mt-7"
@@ -50,6 +52,7 @@ const SignUp = () => {
           <FormField
             title="Пароль"
             type='password'
+            placeholder="Введите пароль"
             value={form.password}
             handleChangeText={(e) => setForm({ ...form,
             password: e })}

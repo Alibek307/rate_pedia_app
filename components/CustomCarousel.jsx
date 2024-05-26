@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, FlatList, SectionList } from 'react-native';
 
-const CustomCarousel = ({ name, onPress, images }) => {
+const CustomCarousel = ({ name, onPress, images, type, year }) => {
   return (
     <TouchableOpacity className="flex items-center justify-center mx-2.5 text-center" 
     onPress={onPress}>
@@ -12,11 +12,13 @@ const CustomCarousel = ({ name, onPress, images }) => {
         )}
         keyExtractor={(index) => index.toString()}
         horizontal
-        showsHorizontalScrollIndicator={false}
         pagingEnabled
       />
       <Text className="font-rregular m-2">
         {name}
+      </Text>
+      <Text className="font-rlight text-xs m-1 flex-row items-center justify-between">
+        {type} {year}
       </Text>
     </TouchableOpacity>
   );
